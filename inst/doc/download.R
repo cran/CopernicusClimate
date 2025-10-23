@@ -61,7 +61,7 @@ request <- cds_build_request(
   year           = "2025",
   month          = "01",
   day            = "01",
-  area           = c(n = 60, w = -5, e = 10, s = 40),
+  area           = c(n = 60, e = -5, s = 40, w = 10),
   data_format    = "netcdf")
 summary(request)
 
@@ -74,15 +74,7 @@ if (cds_token_works()) {
 
 ## ----estimate-detailed--------------------------------------------------------
 if (cds_token_works()) {
-  cds_estimate_costs(
-    "reanalysis-era5-pressure-levels",
-    variable       = "temperature",
-    pressure_level = "1000",
-    year           = "2025",
-    month          = "01",
-    day            = "01",
-    area           = c(n = 60, w = -5, e = 10, s = 40),
-    data_format    = "netcdf")
+  cds_estimate_costs(request)
 } else {
   message("You need a working token to estimate costs")
 }
@@ -90,15 +82,7 @@ if (cds_token_works()) {
 ## ----submit, message=FALSE----------------------------------------------------
 if (cds_token_works()) {
   job <-
-    cds_submit_job(
-      "reanalysis-era5-pressure-levels",
-      variable       = "temperature",
-      pressure_level = "1000",
-      year           = "2025",
-      month          = "01",
-      day            = "01",
-      area           = c(n = 60, w = -5, e = 10, s = 40),
-      data_format    = "netcdf")
+    cds_submit_job(request)
   job
 } else {
   message("You need a working token to submit a request")
@@ -119,7 +103,7 @@ if (cds_token_works()) {
   message("Downloading data only works with a valid token")
 }
 
-## ----plot, fig.width=7, fig.height=3------------------------------------------
+## ----plot, fig.width=7, fig.height=3, message = FALSE, fig.alt="Plot created from downloaded data"----
 fn <- file.path(tempdir(), filename)
 
 if (file.exists(fn)) {
@@ -132,9 +116,10 @@ if (file.exists(fn)) {
   ggplot() +
     geom_stars(data = result) +
     coord_sf() +
-    facet_wrap(~strftime(valid_time, "%H:%M")) +
+    facet_wrap(~strftime(valid_time, "%H:%M"), nrow = 3) +
     scale_fill_viridis_c(option = "turbo") +
-    labs(x = NULL, y = NULL, fill = "Temperature [K]")
+    labs(x = NULL, y = NULL, fill = "Temperature [K]") +
+    theme(axis.text = element_blank())
 
 } else {
   message("File wasn't downloaded")

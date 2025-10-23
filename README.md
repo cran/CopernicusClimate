@@ -4,6 +4,10 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/pepijn-devries/CopernicusClimate/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/pepijn-devries/CopernicusClimate/actions/workflows/R-CMD-check.yaml)
+![cranlogs](https://cranlogs.r-pkg.org/badges/CopernicusClimate)
+[![version](https://www.r-pkg.org/badges/version/CopernicusClimate)](https://CRAN.R-project.org/package=CopernicusClimate)
+[![cran
+checks](https://badges.cranchecks.info/worst/CopernicusClimate.svg)](https://cran.r-project.org/web/checks/check_results_CopernicusClimate.html)
 [![CopernicusClimate status
 badge](https://pepijn-devries.r-universe.dev/badges/CopernicusClimate)](https://pepijn-devries.r-universe.dev/CopernicusClimate)
 [![Codecov test
@@ -22,6 +26,12 @@ data to scientists. This package allows users to download data from the
 data store and handle it in R.
 
 ## Installation
+
+Install CRAN release:
+
+``` r
+install.packages("CopernicusClimate")
+```
 
 Install latest developmental version from R-Universe:
 
@@ -70,6 +80,8 @@ if (cds_token_works()) { ## Make sure there is an operational access token
     scale_fill_viridis_c(option = "inferno", na.value = "transparent")
 }
 ```
+
+<img src="man/figures/README-example-1.png" alt="Temperature map created from downloaded data" width="100%" />
 
 ## More of Copernicus
 

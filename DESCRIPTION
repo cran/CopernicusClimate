@@ -1,7 +1,7 @@
 Package: CopernicusClimate
 Title: Search Download and Handle Data from Copernicus Climate Data
         Service
-Version: 0.0.2
+Version: 0.0.3
 Authors@R: 
     c(
       person("Pepijn", "de Vries", role = c("aut", "cre"),
@@ -15,22 +15,23 @@ Description: Subset and download data from EU Copernicus Climate Data Service:
 Depends: R (>= 4.1.0)
 Imports: dplyr, httr2, jsonlite, methods, purrr, rlang, stringr,
         tibble, tidyr
-Suggests: ggplot2, knitr, RefManageR, rmarkdown, stars, testthat (>=
-        3.0.0)
+Suggests: clipr, ggplot2, knitr, RefManageR, rmarkdown, stars, testthat
+        (>= 3.0.0)
 License: GPL (>= 3)
 Encoding: UTF-8
 RoxygenNote: 7.3.2
 Collate: 'CopernicusClimate-package.R' 'helpers.R' 'catalogue.R'
-        'cite.R' 'jobs.R' 'licenses.R' 'retrieve.R' 'stars.R' 'token.R'
+        'cite.R' 'jobs.R' 'licenses.R' 'python.R' 'retrieve.R'
+        'stars.R' 'token.R'
 Config/testthat/edition: 3
 URL: https://pepijn-devries.github.io/CopernicusClimate/,
         https://github.com/pepijn-devries/CopernicusClimate/
 BugReports: https://github.com/pepijn-devries/CopernicusMarine/issues
 VignetteBuilder: knitr
 NeedsCompilation: no
-Packaged: 2025-10-05 15:45:23 UTC; vries171
+Packaged: 2025-10-23 07:22:48 UTC; vries171
 Author: Pepijn de Vries [aut, cre] (ORCID:
     <https://orcid.org/0000-0002-7961-6646>)
 Maintainer: Pepijn de Vries <pepijn.devries@outlook.com>
 Repository: CRAN
-Date/Publication: 2025-10-09 07:40:12 UTC
+Date/Publication: 2025-10-23 10:40:35 UTC
